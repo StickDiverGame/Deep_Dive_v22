@@ -581,20 +581,25 @@ function bent(ax: number, ad: number, bx: number, bd: number, worldW: number): [
   const endsInCave = caves && (caveAt(ax, ad) !== null || caveAt(bx, bd) !== null);
   const n = Math.max(2, Math.ceil(Math.abs(bx - ax) * (endsInCave ? 10 : 3)));
   const pts: [number, number][] = [];
+  // cave lines follow the passage they are already in (continuity), not whichever passage is nearest
+  let prevD = ad;
   for (let i = 0; i <= n; i++) {
     const t = i / n;
     const x = ax + (bx - ax) * t;
     const d = ad + (bd - ad) * t;
     if (i === 0 || i === n) {
       pts.push([x, d]);
+      prevD = d;
       continue;
     }
     // inside (or just outside) a cave the line is squeezed between roof and floor
-    const b = caves ? caveBounds(x, d, endsInCave) : null;
+    const b = caves ? caveBounds(x, endsInCave ? prevD : d, endsInCave) : null;
     if (b) {
-      pts.push([x, Math.max(b.roof, Math.min(b.floor, d))]);
+      prevD = Math.max(b.roof, Math.min(b.floor, d));
+      pts.push([x, prevD]);
       continue;
     }
+    prevD = Math.min(d, bedDepth(x, worldW) - 0.08);
     pts.push([x, Math.min(d, bedDepth(x, worldW) - 0.08)]);
   }
   return pts;
