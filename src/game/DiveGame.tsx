@@ -1462,6 +1462,7 @@ export function DiveGame() {
   /** Skips any step whose goal the diver has already met (badge held, line already tied, gear in hand). */
   function checkFulfilled() {
     const s = g.current;
+    ensureDeepGear();
     const has = (b: string) => s.badges.includes(b);
     if (s.knots.length && !has("Shore Line") && connected("w1", "beach")) award("Shore Line");
     const next = (ph: Phase) => {
@@ -1609,8 +1610,7 @@ export function DiveGame() {
         award("Stage");
         // the ocean doubles in size and opens down to 200 m
         s.worldW = START_WORLD * 6;
-        if (!s.pickups.some((o) => o.kind === "torch3")) spawnPickup("torch3");
-        if (!s.pickups.some((o) => o.kind === "dpv3")) spawnPickup("dpv3");
+        ensureDeepGear();
         setPhase("deepWreck");
         break;
       default:
@@ -2235,10 +2235,21 @@ export function DiveGame() {
     if (o.kind === "torch") s.torch.lvl = Math.max(1, s.torch.lvl);
     if (o.kind === "dpv") s.dpv.lvl = Math.max(1, s.dpv.lvl);
     if (s.phase === "gearHunt" && HUNT_GEAR.every((k) => s.items.includes(k))) setPhase("findTank2");
-    if (s.phase === "findTechGear" && TECH_GEAR.every((k) => s.items.includes(k))) {
-      spawnPickup("torch2");
-      spawnPickup("dpv2");
-      setPhase("techfinsTrain");
+    ensureDeepGear();
+    if (s.phase === "findTechGear" && TECH_GEAR.every((k) => s.items.includes(k))) setPhase("techfinsTrain");
+  }
+
+  /** Deep and 250 m torch/DPV appear once their trigger is met, whatever order the badges were earned in. */
+  function ensureDeepGear() {
+    const s = g.current;
+    const missing = (k: GearKind, lvl: number) => lvl < (k.endsWith("3") ? 3 : 2) && !s.pickups.some((o) => o.kind === k);
+    if (TECH_GEAR.every((k) => s.items.includes(k))) {
+      if (missing("torch2", s.torch.lvl)) spawnPickup("torch2");
+      if (missing("dpv2", s.dpv.lvl)) spawnPickup("dpv2");
+    }
+    if (s.badges.includes("Stage")) {
+      if (missing("torch3", s.torch.lvl)) spawnPickup("torch3");
+      if (missing("dpv3", s.dpv.lvl)) spawnPickup("dpv3");
     }
   }
 
@@ -3507,7 +3518,7 @@ export function DiveGame() {
       </div>
 
       {/* cheat mode + explore mode */}
-      <div className="absolute left-1/2 top-3 flex -translate-x-1/2 items-center gap-2">
+      <div className="absolute left-4 top-16 z-10 flex flex-col items-start gap-2">
         <button
           type="button"
           onClick={() => {
@@ -3535,7 +3546,7 @@ export function DiveGame() {
         )}
       </div>
       {s.cheat && (
-        <div className="absolute left-1/2 top-12 w-[min(90vw,28rem)] -translate-x-1/2 rounded-2xl bg-sea-deep/90 p-4 text-sm text-foam shadow-2xl ring-1 ring-alert/60">
+        <div className="absolute left-4 top-36 z-30 w-[min(calc(100vw-2rem),24rem)] rounded-2xl bg-sea-deep/90 p-4 text-sm text-foam shadow-2xl ring-1 ring-alert/60">
           <p>{HINTS[s.phase] ?? "Keep exploring."}</p>
           <button
             type="button"
