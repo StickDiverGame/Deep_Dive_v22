@@ -46,7 +46,7 @@ export const GEAR_NAMES: Record<GearKind, string> = {
   dpv2: "Deep DPV",
   torch3: "250 m Torch",
   dpv3: "250 m DPV",
-  reel2: "Second Reel",
+  reel2: "360 m Reel",
   reel3: "Cave Reel",
   reel4: "100 m Reel",
 };

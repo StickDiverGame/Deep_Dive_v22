@@ -102,6 +102,8 @@ const BEACH_END = 6;
 const START_WORLD = 34;
 /** World width once the 170 m dive opens the far side of the ocean. */
 const ABYSS_WORLD = CAVE_WORLD;
+/** Second reel: with the finger spool the pool covers any Wreck 3 to Wreck 4 tie-off (worst case ~345 m). */
+const REEL2_CAP = 360;
 const VIEW_H = 15;
 const SURFACE_MARGIN = 3;
 const REQUIRED = 4;
@@ -1508,12 +1510,12 @@ export function DiveGame() {
       case "deepWreck":
         if (connected("w2", "w3")) {
           if (!has("Deep Wreck")) award("Deep Wreck");
-          if (s.reelCap < 160 && !s.pickups.some((o) => o.kind === "reel2")) s.reel2Pending = true;
+          if (s.reelCap < REEL2_CAP && !s.pickups.some((o) => o.kind === "reel2")) s.reel2Pending = true;
           next("allDone");
         }
         break;
       case "allDone":
-        if (s.reelCap >= 160) {
+        if (s.reelCap >= REEL2_CAP) {
           s.reel2Pending = false;
           s.pickups = s.pickups.filter((o) => o.kind !== "reel2");
           next("dive170");
@@ -2249,7 +2251,7 @@ export function DiveGame() {
     if (k === "torch3") s.torch.lvl = 3;
     if (k === "dpv3") s.dpv.lvl = 3;
     if (k === "reel2") {
-      s.reelCap = 160;
+      s.reelCap = Math.max(s.reelCap, REEL2_CAP);
       if (s.phase === "allDone") setPhase("dive170");
     }
     if (k === "reel3") {
@@ -2879,7 +2881,7 @@ export function DiveGame() {
       const r = s.pickups.find((o) => o.kind === "reel2");
       if (r) collectPickup(r);
       else {
-        s.reelCap = 160;
+        s.reelCap = Math.max(s.reelCap, REEL2_CAP);
         setPhase("dive170");
       }
       return;
