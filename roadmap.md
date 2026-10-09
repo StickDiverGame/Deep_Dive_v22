@@ -59,3 +59,9 @@ Carried over from DeepDive V8 (remixed). The wreck tie-off hitbox fix
 ## 8. HUD and sea life realism
 - [x] Top-right gauges no longer cover the Cheat / Explore buttons (click-through wrapper, narrower width, compact spacing)
 - [x] Marine life redrawn: smooth anatomical outlines, countershaded gradients, traveling spine-wave swimming, depth haze
+
+## 9. Reels, cave line, deep gear, buttons
+- [x] After Wreck 3, a 360 m reel spawns on Wreck 2's deck on return to the beach (covers Wreck 3 → Wreck 4)
+- [x] Cave lines follow the passage they're in instead of jumping to the nearest tunnel
+- [x] Deep / 250 m torch and DPV spawn whenever their trigger is met, in any badge order
+- [x] Cheat / Explore moved under the Badges button so they no longer overlap the gauges

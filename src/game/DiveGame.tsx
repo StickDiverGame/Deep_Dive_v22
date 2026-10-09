@@ -102,6 +102,8 @@ const BEACH_END = 6;
 const START_WORLD = 34;
 /** World width once the 170 m dive opens the far side of the ocean. */
 const ABYSS_WORLD = CAVE_WORLD;
+/** Second reel: with the finger spool the pool covers any Wreck 3 to Wreck 4 tie-off (worst case ~345 m). */
+const REEL2_CAP = 360;
 const VIEW_H = 15;
 const SURFACE_MARGIN = 3;
 const REQUIRED = 4;
@@ -581,20 +583,25 @@ function bent(ax: number, ad: number, bx: number, bd: number, worldW: number): [
   const endsInCave = caves && (caveAt(ax, ad) !== null || caveAt(bx, bd) !== null);
   const n = Math.max(2, Math.ceil(Math.abs(bx - ax) * (endsInCave ? 10 : 3)));
   const pts: [number, number][] = [];
+  // cave lines follow the passage they are already in (continuity), not whichever passage is nearest
+  let prevD = ad;
   for (let i = 0; i <= n; i++) {
     const t = i / n;
     const x = ax + (bx - ax) * t;
     const d = ad + (bd - ad) * t;
     if (i === 0 || i === n) {
       pts.push([x, d]);
+      prevD = d;
       continue;
     }
     // inside (or just outside) a cave the line is squeezed between roof and floor
-    const b = caves ? caveBounds(x, d, endsInCave) : null;
+    const b = caves ? caveBounds(x, endsInCave ? prevD : d, endsInCave) : null;
     if (b) {
-      pts.push([x, Math.max(b.roof, Math.min(b.floor, d))]);
+      prevD = Math.max(b.roof, Math.min(b.floor, d));
+      pts.push([x, prevD]);
       continue;
     }
+    prevD = Math.min(d, bedDepth(x, worldW) - 0.08);
     pts.push([x, Math.min(d, bedDepth(x, worldW) - 0.08)]);
   }
   return pts;
@@ -1172,8 +1179,10 @@ export function DiveGame() {
     refillSlots();
     if (s.reel2Pending) {
       s.reel2Pending = false;
-      const x = 48 + Math.random() * 6;
-      s.pickups = [...s.pickups, { kind: "reel2", x, depth: Math.min(40 + Math.random() * 5, bedDepth(x, s.worldW) - 0.8) }];
+      // lies on the deck of Wreck 2
+      const x = W2.x0 + 2 + Math.random() * (W2.x1 - W2.x0 - 4);
+      const deck = spanBed(W2, (wx) => bedDepth(wx, s.worldW))(x) - W2.h - 0.6;
+      if (!s.pickups.some((o) => o.kind === "reel2")) s.pickups = [...s.pickups, { kind: "reel2", x, depth: deck }];
     }
     s.diveActive = false;
     s.diveMax = 0;
@@ -1453,6 +1462,7 @@ export function DiveGame() {
   /** Skips any step whose goal the diver has already met (badge held, line already tied, gear in hand). */
   function checkFulfilled() {
     const s = g.current;
+    ensureDeepGear();
     const has = (b: string) => s.badges.includes(b);
     if (s.knots.length && !has("Shore Line") && connected("w1", "beach")) award("Shore Line");
     const next = (ph: Phase) => {
@@ -1501,12 +1511,12 @@ export function DiveGame() {
       case "deepWreck":
         if (connected("w2", "w3")) {
           if (!has("Deep Wreck")) award("Deep Wreck");
-          if (s.reelCap < 160 && !s.pickups.some((o) => o.kind === "reel2")) s.reel2Pending = true;
+          if (s.reelCap < REEL2_CAP && !s.pickups.some((o) => o.kind === "reel2")) s.reel2Pending = true;
           next("allDone");
         }
         break;
       case "allDone":
-        if (s.reelCap >= 160) {
+        if (s.reelCap >= REEL2_CAP) {
           s.reel2Pending = false;
           s.pickups = s.pickups.filter((o) => o.kind !== "reel2");
           next("dive170");
@@ -1600,8 +1610,7 @@ export function DiveGame() {
         award("Stage");
         // the ocean doubles in size and opens down to 200 m
         s.worldW = START_WORLD * 6;
-        if (!s.pickups.some((o) => o.kind === "torch3")) spawnPickup("torch3");
-        if (!s.pickups.some((o) => o.kind === "dpv3")) spawnPickup("dpv3");
+        ensureDeepGear();
         setPhase("deepWreck");
         break;
       default:
@@ -2226,10 +2235,21 @@ export function DiveGame() {
     if (o.kind === "torch") s.torch.lvl = Math.max(1, s.torch.lvl);
     if (o.kind === "dpv") s.dpv.lvl = Math.max(1, s.dpv.lvl);
     if (s.phase === "gearHunt" && HUNT_GEAR.every((k) => s.items.includes(k))) setPhase("findTank2");
-    if (s.phase === "findTechGear" && TECH_GEAR.every((k) => s.items.includes(k))) {
-      spawnPickup("torch2");
-      spawnPickup("dpv2");
-      setPhase("techfinsTrain");
+    ensureDeepGear();
+    if (s.phase === "findTechGear" && TECH_GEAR.every((k) => s.items.includes(k))) setPhase("techfinsTrain");
+  }
+
+  /** Deep and 250 m torch/DPV appear once their trigger is met, whatever order the badges were earned in. */
+  function ensureDeepGear() {
+    const s = g.current;
+    const missing = (k: GearKind, lvl: number) => lvl < (k.endsWith("3") ? 3 : 2) && !s.pickups.some((o) => o.kind === k);
+    if (TECH_GEAR.every((k) => s.items.includes(k))) {
+      if (missing("torch2", s.torch.lvl)) spawnPickup("torch2");
+      if (missing("dpv2", s.dpv.lvl)) spawnPickup("dpv2");
+    }
+    if (s.badges.includes("Stage")) {
+      if (missing("torch3", s.torch.lvl)) spawnPickup("torch3");
+      if (missing("dpv3", s.dpv.lvl)) spawnPickup("dpv3");
     }
   }
 
@@ -2242,7 +2262,7 @@ export function DiveGame() {
     if (k === "torch3") s.torch.lvl = 3;
     if (k === "dpv3") s.dpv.lvl = 3;
     if (k === "reel2") {
-      s.reelCap = 160;
+      s.reelCap = Math.max(s.reelCap, REEL2_CAP);
       if (s.phase === "allDone") setPhase("dive170");
     }
     if (k === "reel3") {
@@ -2872,7 +2892,7 @@ export function DiveGame() {
       const r = s.pickups.find((o) => o.kind === "reel2");
       if (r) collectPickup(r);
       else {
-        s.reelCap = 160;
+        s.reelCap = Math.max(s.reelCap, REEL2_CAP);
         setPhase("dive170");
       }
       return;
@@ -3498,7 +3518,7 @@ export function DiveGame() {
       </div>
 
       {/* cheat mode + explore mode */}
-      <div className="absolute left-1/2 top-3 flex -translate-x-1/2 items-center gap-2">
+      <div className="absolute left-4 top-16 z-10 flex flex-col items-start gap-2">
         <button
           type="button"
           onClick={() => {
@@ -3526,7 +3546,7 @@ export function DiveGame() {
         )}
       </div>
       {s.cheat && (
-        <div className="absolute left-1/2 top-12 w-[min(90vw,28rem)] -translate-x-1/2 rounded-2xl bg-sea-deep/90 p-4 text-sm text-foam shadow-2xl ring-1 ring-alert/60">
+        <div className="absolute left-4 top-36 z-30 w-[min(calc(100vw-2rem),24rem)] rounded-2xl bg-sea-deep/90 p-4 text-sm text-foam shadow-2xl ring-1 ring-alert/60">
           <p>{HINTS[s.phase] ?? "Keep exploring."}</p>
           <button
             type="button"
