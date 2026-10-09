@@ -1177,8 +1177,10 @@ export function DiveGame() {
     refillSlots();
     if (s.reel2Pending) {
       s.reel2Pending = false;
-      const x = 48 + Math.random() * 6;
-      s.pickups = [...s.pickups, { kind: "reel2", x, depth: Math.min(40 + Math.random() * 5, bedDepth(x, s.worldW) - 0.8) }];
+      // lies on the deck of Wreck 2
+      const x = W2.x0 + 2 + Math.random() * (W2.x1 - W2.x0 - 4);
+      const deck = spanBed(W2, (wx) => bedDepth(wx, s.worldW))(x) - W2.h - 0.6;
+      if (!s.pickups.some((o) => o.kind === "reel2")) s.pickups = [...s.pickups, { kind: "reel2", x, depth: deck }];
     }
     s.diveActive = false;
     s.diveMax = 0;
