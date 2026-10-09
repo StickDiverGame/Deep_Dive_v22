@@ -94,6 +94,17 @@
   --color-silver-top: oklch(0.5 0.07 238);
   --color-silver-belly: oklch(0.95 0.02 215);
   --color-gold-top: oklch(0.62 0.12 85);
+  --color-chromis-top: oklch(0.55 0.15 245);
+  --color-chromis-belly: oklch(0.82 0.08 220);
+  --color-tang: oklch(0.85 0.17 95);
+  --color-tang-deep: oklch(0.72 0.17 80);
+  --color-anthias: oklch(0.7 0.16 40);
+  --color-anthias-belly: oklch(0.86 0.1 60);
+  --color-clown: oklch(0.68 0.19 50);
+  --color-coral-tip: oklch(0.93 0.04 70);
+  --color-coral-gold: oklch(0.72 0.12 75);
+  --color-brain: oklch(0.7 0.09 120);
+  --color-brain-groove: oklch(0.45 0.07 130);
   --color-lion-top: oklch(0.42 0.13 28);
   --color-lion-belly: oklch(0.88 0.05 70);
   --color-lion-stripe: oklch(0.24 0.06 25);
