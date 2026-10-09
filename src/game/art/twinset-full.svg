@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 320" width="100%" height="100%">
+  <defs>
+    <!-- Metallic chrome gradient for manifold crossbar, bands, 1st stages & QD fitting -->
+    <linearGradient id="chromeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="25%" stop-color="#f8fafc" />
+      <stop offset="50%" stop-color="#cbd5e1" />
+      <stop offset="75%" stop-color="#64748b" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <!-- Stainless steel tank band gradient -->
+    <linearGradient id="bandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64748b" />
+      <stop offset="15%" stop-color="#e2e8f0" />
+      <stop offset="45%" stop-color="#94a3b8" />
+      <stop offset="55%" stop-color="#cbd5e1" />
+      <stop offset="85%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <!-- Twin cylinder body gradient (matching game ocean palette) -->
+    <linearGradient id="tankGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f2942" />
+      <stop offset="20%" stop-color="#3a7ebd" />
+      <stop offset="50%" stop-color="#5b9bd5" />
+      <stop offset="80%" stop-color="#245682" />
+      <stop offset="100%" stop-color="#0e2338" />
+    </linearGradient>
+
+    <!-- Fluted rubber handwheels & hose gradient -->
+    <linearGradient id="rubberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="35%" stop-color="#334155" />
+      <stop offset="70%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- 1st stage regulator radial chrome body -->
+    <radialGradient id="regChrome" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#cbd5e1" />
+      <stop offset="80%" stop-color="#64748b" />
+      <stop offset="100%" stop-color="#334155" />
+    </radialGradient>
+
+    <!-- Unified Handwheel Component -->
+    <g id="handwheel">
+      <rect x="-7" y="-11" width="14" height="22" rx="3.5" fill="url(#rubberGrad)" stroke="#0f172a" stroke-width="1.2" />
+      <line x1="-4" y1="-7" x2="-4" y2="7" stroke="#475569" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#94a3b8" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="4" y1="-7" x2="4" y2="7" stroke="#475569" stroke-width="1.2" stroke-linecap="round" />
+      <rect x="-3" y="9" width="6" height="4" fill="url(#chromeGrad)" stroke="#334155" stroke-width="0.8" />
+    </g>
+
+    <!-- 2nd Stage Regulator Component -->
+    <g id="secondStage">
+      <!-- Casing & purge face -->
+      <circle cx="0" cy="0" r="9.5" fill="#1e293b" stroke="#0f172a" stroke-width="1.4" />
+      <circle cx="0" cy="0" r="6.5" fill="#334155" />
+      <circle cx="0" cy="0" r="3.5" fill="var(--color-gear, #c89567)" />
+      <!-- Mouthpiece -->
+      <path d="M-3.5 -9.5 L3.5 -9.5 L2.5 -14 L-2.5 -14 Z" fill="#0f172a" />
+      <!-- Hose swivel collar -->
+      <rect x="-13" y="-3.5" width="4.5" height="7" rx="1" fill="url(#chromeGrad)" stroke="#334155" stroke-width="0.8" />
+    </g>
+
+    <!-- SPG Pressure Gauge Component -->
+    <g id="spg">
+      <circle cx="0" cy="0" r="10.5" fill="url(#chromeGrad)" stroke="#334155" stroke-width="1.4" />
+      <circle cx="0" cy="0" r="8" fill="#f8fafc" stroke="#64748b" stroke-width="0.8" />
+      <!-- Dial tick markings -->
+      <path d="M -4.5 3 A 5.5 5.5 0 1 1 4.5 3" fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="1.2 1.2" />
+      <!-- Red reserve zone (<50 bar) -->
+      <path d="M -4.5 3 A 5.5 5.5 0 0 1 -3.8 -3.8" fill="none" stroke="#ef4444" stroke-width="1.4" />
+      <!-- Needle & pivot -->
+      <line x1="0" y1="0" x2="2.5" y2="-4.5" stroke="#0f172a" stroke-width="1.2" stroke-linecap="round" />
+      <circle cx="0" cy="0" r="1.3" fill="#0f172a" />
+      <!-- Rubber boot -->
+      <rect x="-2.5" y="9.5" width="5" height="5" fill="#1e293b" />
+    </g>
+  </defs>
+
+  <!-- ================= CYLINDERS ================= -->
+  <!-- Left Cylinder -->
+  <g id="leftCylinder">
+    <rect x="85" y="50" width="22" height="7" rx="1.5" fill="url(#chromeGrad)" stroke="#0f2942" stroke-width="1" />
+    <path d="M 70 82 C 70 57, 85 55, 96 55 C 107 55, 122 57, 122 82 L 122 248 C 122 258, 70 258, 70 248 Z"
+      fill="url(#tankGrad)" stroke="#0f2942" stroke-width="1.8" />
+    <path d="M 69 240 L 123 240 L 123 248 C 123 256, 69 256, 69 248 Z" fill="#0f172a" opacity="0.6" />
+  </g>
+
+  <!-- Right Cylinder -->
+  <g id="rightCylinder">
+    <rect x="173" y="50" width="22" height="7" rx="1.5" fill="url(#chromeGrad)" stroke="#0f2942" stroke-width="1" />
+    <path d="M 158 82 C 158 57, 173 55, 184 55 C 195 55, 210 57, 210 82 L 210 248 C 210 258, 158 258, 158 248 Z"
+      fill="url(#tankGrad)" stroke="#0f2942" stroke-width="1.8" />
+    <path d="M 157 240 L 211 240 L 211 248 C 211 256, 157 256, 157 248 Z" fill="#0f172a" opacity="0.6" />
+  </g>
+
+  <!-- ================= TANK BANDS ================= -->
+  <!-- Upper Stainless Band -->
+  <g id="upperBand">
+    <rect x="68" y="96" width="144" height="18" rx="2" fill="url(#bandGrad)" stroke="#334155" stroke-width="1.2" />
+    <rect x="133" y="94" width="14" height="22" rx="1.5" fill="#475569" stroke="#1e293b" stroke-width="1" />
+    <circle cx="140" cy="105" r="3.5" fill="url(#chromeGrad)" stroke="#1e293b" stroke-width="0.8" />
+    <line x1="68" y1="99" x2="212" y2="99" stroke="#ffffff" stroke-width="0.8" opacity="0.7" />
+    <line x1="68" y1="111" x2="212" y2="111" stroke="#334155" stroke-width="0.8" opacity="0.5" />
+  </g>
+
+  <!-- Lower Stainless Band -->
+  <g id="lowerBand">
+    <rect x="68" y="184" width="144" height="18" rx="2" fill="url(#bandGrad)" stroke="#334155" stroke-width="1.2" />
+    <rect x="133" y="182" width="14" height="22" rx="1.5" fill="#475569" stroke="#1e293b" stroke-width="1" />
+    <circle cx="140" cy="193" r="3.5" fill="url(#chromeGrad)" stroke="#1e293b" stroke-width="0.8" />
+    <line x1="68" y1="187" x2="212" y2="187" stroke="#ffffff" stroke-width="0.8" opacity="0.7" />
+    <line x1="68" y1="199" x2="212" y2="199" stroke="#334155" stroke-width="0.8" opacity="0.5" />
+  </g>
+
+  <!-- ================= ISOLATION MANIFOLD ================= -->
+  <!-- Crossbar -->
+  <rect x="88" y="38" width="104" height="10" rx="2" fill="url(#chromeGrad)" stroke="#0f2942" stroke-width="1.2" />
+  <line x1="90" y1="41" x2="190" y2="41" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity="0.8" />
+
+  <!-- Left Valve Post & Horizontal Knob (pointing left) -->
+  <rect x="86" y="34" width="20" height="17" rx="2" fill="url(#chromeGrad)" stroke="#0f2942" stroke-width="1.2" />
+  <g transform="translate(74, 42) rotate(-90)">
+    <use href="#handwheel" />
+  </g>
+
+  <!-- Right Valve Post & Horizontal Knob (pointing right) -->
+  <rect x="174" y="34" width="20" height="17" rx="2" fill="url(#chromeGrad)" stroke="#0f2942" stroke-width="1.2" />
+  <g transform="translate(206, 42) rotate(90)">
+    <use href="#handwheel" />
+  </g>
+
+  <!-- Center Isolator Stem & Vertical Knob (on top) -->
+  <rect x="135" y="28" width="10" height="11" fill="url(#chromeGrad)" stroke="#0f2942" stroke-width="1" />
+  <g transform="translate(140, 17)">
+    <use href="#handwheel" />
+  </g>
+
+  <!-- ================= FIRST STAGES ================= -->
+  <!-- Left First Stage -->
+  <g id="firstStageLeft">
+    <rect x="91" y="25" width="10" height="9" rx="1.5" fill="#1e293b" stroke="#0f172a" stroke-width="1" />
+    <rect x="88" y="15" width="16" height="12" rx="3" fill="url(#regChrome)" stroke="#0f2942" stroke-width="1.2" />
+    <circle cx="96" cy="20" r="3" fill="url(#chromeGrad)" />
+  </g>
+
+  <!-- Right First Stage -->
+  <g id="firstStageRight">
+    <rect x="179" y="25" width="10" height="9" rx="1.5" fill="#1e293b" stroke="#0f172a" stroke-width="1" />
+    <rect x="176" y="15" width="16" height="12" rx="3" fill="url(#regChrome)" stroke="#0f2942" stroke-width="1.2" />
+    <circle cx="184" cy="20" r="3" fill="url(#chromeGrad)" />
+  </g>
+
+  <!-- ================= HOSES & ATTACHMENTS ================= -->
+  <!-- 1. SPG High Pressure Hose (routed down left side) -->
+  <path d="M 192 21 C 235 26, 230 140, 226 215" fill="none" stroke="#0f172a" stroke-width="4.5" stroke-linecap="round" />
+  <path d="M 192 21 C 235 26, 230 140, 226 215" fill="none" stroke="#334155" stroke-width="2.2" stroke-linecap="round" opacity="0.6" />
+  <g transform="translate(225, 225)">
+    <use href="#spg" />
+  </g>
+
+  <!-- 2. PRIMARY 7-FOOT LONG HOSE -->
+  <path d="
+    M 88 21
+    C 45 26, 52 110, 52 170
+    C 52 230, 48 275, 85 285
+    C 125 295, 140 250, 110 220
+    C 90 200, 85 160, 105 142
+    "
+    fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round" />
+  <path d="
+    M 88 21
+    C 45 26, 52 110, 52 170
+    C 52 230, 48 275, 85 285
+    C 125 295, 140 250, 110 220
+    C 90 200, 85 160, 105 142
+    "
+    fill="none" stroke="#475569" stroke-width="2.8" stroke-linecap="round" opacity="0.7" />
+  <g transform="translate(108, 138) rotate(-35)">
+    <use href="#secondStage" />
+  </g>
+
+  <!-- 3. INFLATOR HOSE (Longer & crosses over to the right side) -->
+  <path d="M 102 21 C 118 24, 150 42, 178 84" fill="none" stroke="#0f172a" stroke-width="4.2" stroke-linecap="round" />
+  <path d="M 102 21 C 118 24, 150 42, 178 84" fill="none" stroke="#334155" stroke-width="2.2" stroke-linecap="round" opacity="0.6" />
+  <!-- LP Quick Disconnect coupler on the right side -->
+  <g transform="translate(178, 84) rotate(48)">
+    <rect x="-3" y="-5" width="6" height="10" rx="1.5" fill="url(#chromeGrad)" stroke="#1e293b" stroke-width="0.8" />
+    <line x1="-3" y1="0" x2="3" y2="0" stroke="#334155" stroke-width="0.8" />
+  </g>
+
+  <!-- 4. SHORT REGULATOR HOSE (Longer, crosses over to the left side, loops back to necklace 2nd stage) -->
+  <path d="M 176 21 C 146 22, 112 36, 114 58 C 116 74, 132 80, 142 78" fill="none" stroke="#0f172a" stroke-width="4.5" stroke-linecap="round" />
+  <path d="M 176 21 C 146 22, 112 36, 114 58 C 116 74, 132 80, 142 78" fill="none" stroke="#334155" stroke-width="2.2" stroke-linecap="round" opacity="0.6" />
+  <!-- Yellow silicone bungee necklace -->
+  <ellipse cx="150" cy="74" rx="13" ry="6.5" fill="none" stroke="var(--color-sun, #eab308)" stroke-width="1.8" stroke-dasharray="3 2" />
+  <!-- Backup 2nd Stage in the same place -->
+  <g transform="translate(150, 78) rotate(15)">
+    <use href="#secondStage" />
+  </g>
+</svg>

@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 72" width="100%" height="100%" role="img" aria-label="Technical Diver Long Hose (Cropped at Gauge)">
+  <defs>
+    <!-- Suit gradient -->
+    <linearGradient id="lh-suit" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#122030" />
+      <stop offset="45%" stop-color="#243b55" />
+      <stop offset="100%" stop-color="#122030" />
+    </linearGradient>
+
+    <!-- Twinset cylinders -->
+    <linearGradient id="lh-tank" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#122030" />
+      <stop offset="40%" stop-color="#4ea8de" />
+      <stop offset="100%" stop-color="#226f9c" />
+    </linearGradient>
+
+    <!-- Wing bladder -->
+    <linearGradient id="lh-wing" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Mask glass -->
+    <linearGradient id="lh-lens" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="0.9" />
+      <stop offset="55%" stop-color="#38bdf8" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep ocean contrast plate -->
+  
+
+  <!-- 1. Back-Mounted Twinset (behind body) -->
+  <g id="twinset">
+    <rect x="16" y="34" width="9" height="28" rx="4" fill="url(#lh-tank)" />
+    <rect x="16" y="57.5" width="9" height="4.5" rx="2" fill="#081019" opacity="0.7" />
+    <rect x="26" y="34" width="9" height="28" rx="4" fill="url(#lh-tank)" />
+    <rect x="26" y="57.5" width="9" height="4.5" rx="2" fill="#081019" opacity="0.7" />
+    <!-- Stainless steel bands -->
+    <rect x="15" y="41" width="21" height="2.2" rx="1.1" fill="#94a3b8" opacity="0.85" />
+    <rect x="15" y="52" width="21" height="2.2" rx="1.1" fill="#94a3b8" opacity="0.85" />
+    <!-- Manifold crossbar & center isolator -->
+    <rect x="14" y="31" width="23" height="4" rx="2" fill="#d97706" />
+    <circle cx="25.5" cy="33" r="2.6" fill="#facc15" />
+  </g>
+
+  <!-- 2. Long Hose: Rear Neck Loop (behind the neck/head) -->
+  
+
+  <!-- 3. Diver Torso, Harness & Canister Light (IN FRONT of twinset & rear neck loop) -->
+  <g id="body-and-harness">
+    <!-- Contoured wetsuit torso -->
+    <path
+      d="M40 32 C47 32, 49.5 36, 50 41 C50.6 48, 49 55, 47.8 61 C47.2 65, 45 68, 40 68 C35 68, 32.8 65, 32.2 61 C31 55, 29.4 48, 30 41 C30.5 36, 33 32, 40 32 Z"
+      fill="url(#lh-suit)"
+    />
+    <!-- Center chest seam -->
+    <path d="M40 35 L40 64" stroke="#081019" stroke-width="0.7" opacity="0.5" />
+
+    <!-- Technical backplate wing bladders -->
+    <path d="M27 38 C22 44, 22 56, 27.5 61 L33 59 L33 40 Z" fill="url(#lh-wing)" opacity="0.9" />
+    <path d="M53 38 C58 44, 58 56, 52.5 61 L47 59 L47 40 Z" fill="url(#lh-wing)" opacity="0.9" />
+
+    <!-- Continuous webbing shoulder straps + waist belt -->
+    <path d="M34 35 L33 61 M46 35 L47 61" stroke="#020617" stroke-width="2" fill="none" />
+    <rect x="30" y="61" width="20" height="3.4" rx="0.8" fill="#020617" />
+    <rect x="38.5" y="60.5" width="3" height="4.4" rx="0.8" fill="#94a3b8" />
+    <!-- Chest D-rings -->
+    <circle cx="33" cy="42" r="1.5" fill="#94a3b8" />
+    <circle cx="47" cy="42" r="1.5" fill="#94a3b8" />
+
+    <!-- Light Canister on right hip (grey battery pack on waist belt) -->
+    <rect x="29.2" y="56" width="3.4" height="11" rx="1.2" fill="#64748b" stroke="#334155" stroke-width="0.6" />
+
+    <!-- Yellow SPG line running down left flank to pressure gauge -->
+    <path d="M48 42 L52 64" stroke="#eab308" stroke-width="1.4" fill="none" />
+    <circle cx="52.5" cy="66" r="2.2" fill="#f8fafc" stroke="#475569" stroke-width="0.8" />
+    <path d="M52.5 66 L53.5 65" stroke="#ef4444" stroke-width="0.6" stroke-linecap="round" />
+  </g>
+
+  <!-- 4. Long Hose: Upper Downward Segment (IN FRONT of body, BEHIND the arm) -->
+  <!-- Drops from right post (27, 32) behind the arm to canister top (30.8, 56) -->
+  
+
+  <!-- 5. Long Hose: Diagonal Across Chest (Straight to right side of diver's neck) -->
+  
+
+  <!-- 6. Arms (Rendered OVER the downward hose, so it passes BEHIND the right arm) -->
+  <g id="arms">
+    <!-- Right arm (screen left): hangs at flank, passing in front of downward hose -->
+    <path d="M34 40 L27 49" stroke="url(#lh-suit)" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M27 49 L22 56" stroke="#f0b182" stroke-width="4.2" stroke-linecap="round" fill="none" />
+    <circle cx="22" cy="57" r="2.4" fill="#f0b182" />
+
+    <!-- Left arm (screen right) -->
+    <path d="M46 40 L53 49" stroke="url(#lh-suit)" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M53 49 L58 56" stroke="#f0b182" stroke-width="4.2" stroke-linecap="round" fill="none" />
+    <circle cx="58" cy="57" r="2.4" fill="#f0b182" />
+  </g>
+
+  <!-- 7. Head & Mask (Rendered OVER the rear neck loop) -->
+  <g id="head">
+    <path
+      d="M40 10.5 C47.5 10.5, 51.5 16, 51.5 23 C51.5 29, 47 33.5, 40 33.5 C33 33.5, 28.5 29, 28.5 23 C28.5 16, 32.5 10.5, 40 10.5 Z"
+      fill="#081019"
+    />
+    <path
+      d="M40 13 C45.6 13, 48.6 17, 48.6 22.6 C48.6 27.4, 45.2 31, 40 31 C34.8 31, 31.4 27.4, 31.4 22.6 C31.4 17, 34.4 13, 40 13 Z"
+      fill="#f0b182"
+    />
+    <!-- Mask skirt and lens -->
+    <rect x="29.4" y="15" width="21.2" height="11" rx="4" fill="#081019" opacity="0.85" />
+    <rect x="31" y="16.4" width="18" height="7.6" rx="2.6" fill="url(#lh-lens)" />
+    <path d="M33 17.4 L38 17.4 L34 22.6 L32.6 20 Z" fill="#f8fafc" opacity="0.55" />
+    <path d="M29.4 20 L27 19.4 M50.6 20 L53 19.4" stroke="#081019" stroke-width="1.6" />
+  </g>
+
+  <!-- 8. Long Hose: Front Curve Into Mouth (from neck around to primary second stage) -->
+  
+
+  <path d="M27 32 C 12 52, 14 76, 30 71 C 40 66, 34 40, 37 30" stroke="#ef4444" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+<!-- 9. Primary Regulator Second Stage at mouth -->
+  <g id="primary-second-stage">
+    <circle cx="40" cy="29.5" r="3.2" fill="#020617" stroke="#94a3b8" stroke-width="0.8" />
+    <circle cx="40" cy="29.5" r="1.4" fill="#334155" />
+  </g>
+</svg>
