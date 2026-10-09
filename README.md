@@ -1,6 +1,4 @@
-# DeepDive v13
-
-Import https://github.com/StickDiverGame/deepdivev12 to a new project "DeepDiveV13"
+# DeepDive v22
 
 This project was built with [Lovable](https://lovable.dev).
 
