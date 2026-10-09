@@ -59,6 +59,60 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-sky: var(--sky);
+  --color-sky-low: var(--sky-low);
+  --color-sun: var(--sun);
+  --color-sand: var(--sand);
+  --color-sand-dark: var(--sand-dark);
+  --color-sea-shallow: var(--sea-shallow);
+  --color-sea-mid: var(--sea-mid);
+  --color-sea-deep: var(--sea-deep);
+  --color-foam: var(--foam);
+  --color-skin: var(--skin);
+  --color-suit: var(--suit);
+  --color-gear: var(--gear);
+  --color-fin-grey: var(--fin-grey);
+  --color-badge: var(--badge);
+  --color-alert: var(--alert);
+  --color-hull: var(--hull);
+  --color-hull-dark: var(--hull-dark);
+  --color-hull-light: var(--hull-light);
+  --color-rust: var(--rust);
+  --color-growth: var(--growth);
+  --color-coral-pink: var(--coral-pink);
+  --color-coral-violet: var(--coral-violet);
+  --color-coral: oklch(0.68 0.17 35);
+  --color-abyss: oklch(0.16 0.04 245);
+  --color-shark-top: oklch(0.36 0.03 248);
+  --color-shark-belly: oklch(0.92 0.012 225);
+  --color-dolphin-top: oklch(0.44 0.035 250);
+  --color-dolphin-belly: oklch(0.9 0.02 225);
+  --color-manta-top: oklch(0.2 0.03 255);
+  --color-manta-belly: oklch(0.93 0.01 225);
+  --color-eagle-top: oklch(0.34 0.06 252);
+  --color-eagle-belly: oklch(0.9 0.02 230);
+  --color-silver-top: oklch(0.5 0.07 238);
+  --color-silver-belly: oklch(0.95 0.02 215);
+  --color-gold-top: oklch(0.62 0.12 85);
+  --color-lion-top: oklch(0.42 0.13 28);
+  --color-lion-belly: oklch(0.88 0.05 70);
+  --color-lion-stripe: oklch(0.24 0.06 25);
+  --color-moray-top: oklch(0.48 0.09 95);
+  --color-moray-belly: oklch(0.85 0.08 100);
+  --color-moray-spot: oklch(0.28 0.05 80);
+  --color-skin: oklch(0.82 0.06 60);
+  --color-mer-tail: oklch(0.68 0.12 190);
+  --color-mer-tail-deep: oklch(0.45 0.1 205);
+  --color-mer-hair: oklch(0.5 0.15 25);
+  --color-jelly-edge: oklch(0.72 0.15 330);
+  --color-jelly-core: oklch(0.95 0.04 320);
+  --color-kelp: var(--kelp);
+  --color-sponge: var(--sponge);
+  --color-silt: var(--silt);
+  --color-rock: var(--rock);
+  --color-rock-dark: var(--rock-dark);
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Figtree", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -95,6 +149,37 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* Ocean design system */
+  --sky: oklch(0.88 0.06 220);
+  --sky-low: oklch(0.95 0.04 200);
+  --sun: oklch(0.95 0.13 95);
+  --sand: oklch(0.91 0.06 85);
+  --sand-dark: oklch(0.82 0.07 80);
+  --sea-shallow: oklch(0.78 0.11 205);
+  --sea-mid: oklch(0.58 0.11 220);
+  --sea-deep: oklch(0.32 0.09 240);
+  --foam: oklch(0.98 0.02 210);
+  --skin: oklch(0.83 0.08 60);
+  --suit: oklch(0.36 0.06 250);
+  --gear: oklch(0.72 0.14 45);
+  --fin-grey: oklch(0.62 0.01 250);
+  --badge: oklch(0.85 0.15 90);
+  --alert: oklch(0.62 0.21 25);
+
+  /* Wreck + reef environment */
+  --hull: oklch(0.52 0.03 60);
+  --hull-dark: oklch(0.36 0.025 55);
+  --hull-light: oklch(0.64 0.035 65);
+  --rust: oklch(0.55 0.13 45);
+  --growth: oklch(0.52 0.08 150);
+  --coral-pink: oklch(0.72 0.13 10);
+  --coral-violet: oklch(0.63 0.11 320);
+  --kelp: oklch(0.58 0.09 140);
+  --sponge: oklch(0.70 0.12 70);
+  --silt: oklch(0.70 0.04 80);
+  --rock: oklch(0.55 0.02 90);
+  --rock-dark: oklch(0.42 0.02 90);
 }
 
 .dark {
@@ -142,3 +227,241 @@
     color: var(--color-foreground);
   }
 }
+
+/* ---------- Dive game motion system ---------- */
+@keyframes kick-a {
+  0%, 100% { transform: rotate(-16deg); }
+  50% { transform: rotate(16deg); }
+}
+@keyframes kick-b {
+  0%, 100% { transform: rotate(16deg); }
+  50% { transform: rotate(-16deg); }
+}
+@keyframes knee-a {
+  0%, 100% { transform: rotate(-6deg); }
+  40% { transform: rotate(16deg); }
+  70% { transform: rotate(-2deg); }
+}
+@keyframes knee-b {
+  0%, 100% { transform: rotate(6deg); }
+  40% { transform: rotate(-16deg); }
+  70% { transform: rotate(2deg); }
+}
+@keyframes frog-a {
+  0%, 100% { transform: rotate(-4deg) translateX(0); }
+  50% { transform: rotate(-34deg) translateX(-3px); }
+}
+@keyframes frog-b {
+  0%, 100% { transform: rotate(4deg) translateX(0); }
+  50% { transform: rotate(34deg) translateX(3px); }
+}
+@keyframes scissor-a {
+  0%, 100% { transform: rotate(-26deg); }
+  50% { transform: rotate(2deg); }
+}
+@keyframes scissor-b {
+  0%, 100% { transform: rotate(26deg); }
+  50% { transform: rotate(-2deg); }
+}
+@keyframes bicycle-a {
+  0% { transform: rotate(-24deg) translateY(0); }
+  50% { transform: rotate(18deg) translateY(-3px); }
+  100% { transform: rotate(-24deg) translateY(0); }
+}
+@keyframes arm-breast {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(-52deg); }
+}
+@keyframes arm-breast-mirror {
+  0%, 100% { transform: rotate(8deg); }
+  50% { transform: rotate(52deg); }
+}
+@keyframes arm-crawl {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes arm-crawl-off {
+  0% { transform: rotate(180deg); }
+  100% { transform: rotate(540deg); }
+}
+@keyframes arm-paddle {
+  0%, 100% { transform: rotate(-20deg); }
+  50% { transform: rotate(24deg); }
+}
+@keyframes hand-press {
+  0%, 100% { transform: translate(0, 0); }
+  45%, 65% { transform: translate(0, -2px); }
+}
+@keyframes bubble-rise {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  25% { opacity: 0.9; }
+  100% { opacity: 0; transform: translate(-6px, -22px) scale(1.15); }
+}
+@keyframes ear-pulse {
+  0%, 100% { opacity: 0.25; transform: scale(0.8); }
+  55% { opacity: 1; transform: scale(1.35); }
+}
+@keyframes cheek-puff {
+  0%, 100% { transform: scale(1); }
+  55% { transform: scale(1.22); }
+}
+@keyframes chest-in {
+  0%, 100% { transform: scaleX(1) scaleY(1); }
+  50% { transform: scaleX(1.18) scaleY(1.1); }
+}
+@keyframes chest-out {
+  0%, 100% { transform: scaleX(1.18) scaleY(1.1); }
+  50% { transform: scaleX(0.92) scaleY(0.95); }
+}
+@keyframes vest-puff {
+  0%, 100% { transform: scale(1); }
+  60% { transform: scale(1.3); }
+}
+@keyframes head-tilt {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-22deg); }
+}
+@keyframes jaw-move {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2.5px); }
+}
+@keyframes arrow-in {
+  0% { opacity: 0; transform: translate(-10px, -6px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translate(0, 0); }
+}
+@keyframes arrow-out {
+  0% { opacity: 0; transform: translate(0, 0); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-12px, -8px); }
+}
+@keyframes badge-pop {
+  0% { opacity: 0; transform: scale(0.6) translateY(12px); }
+  60% { opacity: 1; transform: scale(1.06) translateY(0); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes fail-flash {
+  0% { opacity: 0; }
+  20% { opacity: 0.55; }
+  100% { opacity: 0; }
+}
+@keyframes tile-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+}
+
+@utility anim-kick-a { animation: kick-a 0.5s ease-in-out infinite; }
+@utility anim-kick-b { animation: kick-b 0.5s ease-in-out infinite; }
+@utility anim-knee-a { animation: knee-a 1.4s ease-in-out infinite; }
+@utility anim-knee-b { animation: knee-b 1.4s ease-in-out infinite; }
+@utility anim-frog-a { animation: frog-a 1.4s ease-in-out infinite; }
+@utility anim-frog-b { animation: frog-b 1.4s ease-in-out infinite; }
+@utility anim-scissor-a { animation: scissor-a 1.6s ease-in-out infinite; }
+@utility anim-scissor-b { animation: scissor-b 1.6s ease-in-out infinite; }
+@utility anim-bicycle-a { animation: bicycle-a 0.9s linear infinite; }
+@utility anim-bicycle-b { animation: bicycle-a 0.9s linear infinite reverse; }
+@utility anim-arm-breast { animation: arm-breast 1.4s ease-in-out infinite; }
+@utility anim-arm-breast-mirror { animation: arm-breast-mirror 1.4s ease-in-out infinite; }
+@utility anim-arm-crawl { animation: arm-crawl 1.1s linear infinite; }
+@utility anim-arm-crawl-off { animation: arm-crawl-off 1.1s linear infinite; }
+@utility anim-arm-paddle { animation: arm-paddle 0.9s ease-in-out infinite; }
+@utility anim-hand-press { animation: hand-press 1.8s ease-in-out infinite; }
+@utility anim-bubble { animation: bubble-rise 1.8s ease-out infinite; }
+@utility anim-ear { animation: ear-pulse 1.8s ease-in-out infinite; }
+@utility anim-puff { animation: cheek-puff 1.8s ease-in-out infinite; }
+@utility anim-chest-in { animation: chest-in 3s ease-in-out infinite; }
+@utility anim-chest-out { animation: chest-out 3s ease-in-out infinite; }
+@utility anim-vest { animation: vest-puff 2.2s ease-in-out infinite; }
+@utility anim-head-tilt { animation: head-tilt 2s ease-in-out infinite; }
+@utility anim-jaw { animation: jaw-move 1.2s ease-in-out infinite; }
+@utility anim-arrow-in { animation: arrow-in 1.8s ease-in-out infinite; }
+@utility anim-arrow-out { animation: arrow-out 1.8s ease-in-out infinite; }
+@utility anim-badge { animation: badge-pop 0.45s cubic-bezier(0.2, 1.3, 0.4, 1) both; }
+@utility anim-fail { animation: fail-flash 0.7s ease-out both; }
+@utility anim-shake { animation: tile-shake 0.35s ease-in-out; }
+@utility anim-glow { animation: glow-pulse 1.6s ease-in-out infinite; }
+
+/* K-style inflator training mini-game */
+.inf * { transform-box: fill-box; }
+.inf-rise { animation: inf-rise 1.2s linear infinite; }
+@keyframes inf-rise { 0% { transform: translateY(0); opacity: .9 } 100% { transform: translateY(-16px); opacity: 0 } }
+.inf-flowIn, .inf-flowOut, .inf-bubOut, .inf-bubBottom, .inf-bubLeak, .inf-lock { opacity: 0; }
+.inf-flowIn, .inf-flowOut { animation: inf-dash .8s linear infinite; }
+@keyframes inf-dash { to { stroke-dashoffset: -22 } }
+.inf-correct .inf-lp { animation: inf-lp 8s infinite; }
+@keyframes inf-lp { 0%,12% { transform: translateY(16px) } 25%,90% { transform: translateY(0) } 100% { transform: translateY(16px) } }
+.inf-correct .inf-sleeve { animation: inf-sl 8s infinite; }
+@keyframes inf-sl { 0%,9% { transform: translateY(0) } 14%,25% { transform: translateY(5px) } 31%,100% { transform: translateY(0) } }
+.inf-correct .inf-lock { animation: inf-lk 8s infinite; }
+@keyframes inf-lk { 0%,30% { opacity: 0 } 33% { opacity: 1 } 38%,100% { opacity: 0 } }
+.inf-correct .inf-btnR, .inf-d2 .inf-btnR, .inf-noCorr .inf-btnR { animation: inf-br 8s infinite; }
+@keyframes inf-br { 0%,42% { transform: translateX(0) } 45%,60% { transform: translateX(-4px) } 63%,100% { transform: translateX(0) } }
+.inf-correct .inf-btnTop, .inf-d1 .inf-btnTop { animation: inf-bt 8s infinite; }
+@keyframes inf-bt { 0%,68% { transform: translateY(0) } 71%,88% { transform: translateY(4px) } 91%,100% { transform: translateY(0) } }
+.inf-correct .inf-flowIn, .inf-noCorr .inf-flowIn { animation: inf-dash .8s linear infinite, inf-win 8s infinite; }
+.inf-correct .inf-flowOut, .inf-d1 .inf-flowIn { animation: inf-dash .8s linear infinite, inf-wout 8s infinite; }
+.inf-correct .inf-bubOut { animation: inf-wout 8s infinite; }
+.inf-noCorr .inf-bubBottom, .inf-d2 .inf-bubOut { animation: inf-win 8s infinite; }
+.inf-d2 .inf-flowOut { animation: inf-dash .8s linear infinite, inf-win 8s infinite; }
+@keyframes inf-win { 0%,44% { opacity: 0 } 46%,60% { opacity: 1 } 62%,100% { opacity: 0 } }
+@keyframes inf-wout { 0%,70% { opacity: 0 } 72%,88% { opacity: 1 } 90%,100% { opacity: 0 } }
+.inf-noSleeve .inf-lp { animation: inf-ns 3s infinite; }
+@keyframes inf-ns { 0%,20% { transform: translateY(16px) } 40% { transform: translateY(5px) } 48% { transform: translateY(9px) } 55% { transform: translateY(5px) } 75%,100% { transform: translateY(16px) } }
+.inf-noSleeve .inf-bubLeak { animation: inf-lk2 3s infinite; }
+@keyframes inf-lk2 { 0%,38% { opacity: 0 } 42%,58% { opacity: 1 } 62%,100% { opacity: 0 } }
+
+/* BCD (donut wing) training puzzle — 4s inflate / vent cycle */
+.bcd * { transform-box: view-box; }
+.bcd-torso, .bcd-wingsInf { transform-origin: 50px 66px; }
+.bcd-wingsInf, .bcd-wingsDef, .bcd-hoseBubbles, .bcd-leak, .bcd-dumpBubbles, .bcd-cheeks { opacity: 0; }
+.bcd-rise1 { animation: bcd-up1 1.4s ease-out infinite; }
+.bcd-rise2 { animation: bcd-up2 1.6s ease-out .35s infinite; }
+.bcd-rise3 { animation: bcd-up3 1.5s ease-out .7s infinite; }
+.bcd-rise4 { animation: bcd-up4 1.8s ease-out 1.05s infinite; }
+@keyframes bcd-up1 { 0% { transform: translate(0,0) scale(.4); opacity: 0 } 15% { opacity: 1 } 50% { transform: translate(-1.5px,-7px) scale(.85); opacity: .95 } 100% { transform: translate(-3.5px,-16px) scale(1.25); opacity: 0 } }
+@keyframes bcd-up2 { 0% { transform: translate(0,0) scale(.45); opacity: 0 } 15% { opacity: 1 } 50% { transform: translate(2px,-8px) scale(.9); opacity: .95 } 100% { transform: translate(3.5px,-17px) scale(1.3); opacity: 0 } }
+@keyframes bcd-up3 { 0% { transform: translate(0,0) scale(.4); opacity: 0 } 15% { opacity: 1 } 50% { transform: translate(-1px,-7px) scale(.85); opacity: .95 } 100% { transform: translate(-2px,-15px) scale(1.2); opacity: 0 } }
+@keyframes bcd-up4 { 0% { transform: translate(0,0) scale(.38); opacity: 0 } 15% { opacity: 1 } 50% { transform: translate(1.2px,-9px) scale(.95); opacity: .95 } 100% { transform: translate(2.5px,-18px) scale(1.35); opacity: 0 } }
+@keyframes bcd-torso { 0%,35% { transform: scaleX(.96) scaleY(.98) } 48%,88% { transform: scale(1) } 100% { transform: scaleX(.96) scaleY(.98) } }
+@keyframes bcd-cheeks { 0%,34% { opacity: 1 } 42%,92% { opacity: 0 } 100% { opacity: 1 } }
+@keyframes bcd-inf { 0% { opacity: 0; transform: scale(.93) } 22%,44% { opacity: 1; transform: scale(1) } 52% { opacity: .6; transform: scale(.95) } 74%,94% { opacity: 0; transform: scale(.91) } 100% { opacity: 0; transform: scale(.93) } }
+@keyframes bcd-def { 0%,42% { opacity: 0 } 52%,88% { opacity: 1 } 96%,100% { opacity: 0 } }
+@keyframes bcd-oral { 0%,36% { opacity: 1 } 44%,94% { opacity: 0 } 100% { opacity: 1 } }
+@keyframes bcd-raised { 0%,38% { opacity: 0 } 46%,88% { opacity: 1 } 96%,100% { opacity: 0 } }
+@keyframes bcd-hoseBub { 0%,46% { opacity: 0 } 50%,85% { opacity: 1 } 89%,100% { opacity: 0 } }
+@keyframes bcd-on { 0%,100% { opacity: 1 } }
+@keyframes bcd-overfill { 0% { opacity: 1; transform: scale(1) } 80%,100% { opacity: 1; transform: scale(1.22) } }
+@keyframes bcd-leakInf { 0% { opacity: 0; transform: scale(.93) } 25% { opacity: .7; transform: scale(.96) } 40%,100% { opacity: 0; transform: scale(.91) } }
+@keyframes bcd-leakBub { 0%,8% { opacity: 0 } 15%,60% { opacity: 1 } 70%,100% { opacity: 0 } }
+@keyframes bcd-dumpInf { 0%,15% { opacity: 1; transform: scale(1) } 70%,100% { opacity: 0; transform: scale(.91) } }
+@keyframes bcd-dumpDef { 0%,40% { opacity: 0 } 70%,100% { opacity: 1 } }
+@keyframes bcd-dumpBub { 0%,15% { opacity: 0 } 20%,65% { opacity: 1 } 72%,100% { opacity: 0 } }
+@keyframes bcd-pull { 0%,15% { transform: translate(0,0) } 20%,65% { transform: translate(-2px,-3px) } 72%,100% { transform: translate(0,0) } }
+
+/* Correct + unbuckled: full oral inflate, raise the K-valve, vent */
+.bcd-correct .bcd-torso, .bcd-unbuckled .bcd-torso { animation: bcd-torso 4s cubic-bezier(.4,0,.2,1) infinite; }
+.bcd-correct .bcd-cheeks, .bcd-unbuckled .bcd-cheeks, .bcd-punctured .bcd-cheeks, .bcd-noHose .bcd-cheeks { animation: bcd-cheeks 4s ease-in-out infinite; }
+.bcd-correct .bcd-wingsInf, .bcd-unbuckled .bcd-wingsInf { animation: bcd-inf 4s cubic-bezier(.4,0,.2,1) infinite; }
+.bcd-correct .bcd-wingsDef, .bcd-unbuckled .bcd-wingsDef { animation: bcd-def 4s ease-in-out infinite; }
+.bcd-correct .bcd-poseOral, .bcd-unbuckled .bcd-poseOral, .bcd-punctured .bcd-poseOral, .bcd-noHose .bcd-poseOral { animation: bcd-oral 4s cubic-bezier(.4,0,.2,1) infinite; }
+.bcd-correct .bcd-poseRaised, .bcd-unbuckled .bcd-poseRaised, .bcd-punctured .bcd-poseRaised { animation: bcd-raised 4s cubic-bezier(.4,0,.2,1) infinite; }
+.bcd-correct .bcd-hoseBubbles, .bcd-unbuckled .bcd-hoseBubbles { animation: bcd-hoseBub 4s linear infinite; }
+/* No hose: blowing with nothing attached, wing stays flat */
+.bcd-noHose .bcd-wingsDef { animation: bcd-on 4s infinite; }
+/* Punctured: wing barely fills and leaks from the side */
+.bcd-punctured .bcd-wingsInf { animation: bcd-leakInf 4s ease-in-out infinite; }
+.bcd-punctured .bcd-wingsDef { animation: bcd-on 4s infinite; }
+.bcd-punctured .bcd-leak { animation: bcd-leakBub 4s linear infinite; }
+/* Overinflated: wing balloons past full and never vents */
+.bcd-overinflated .bcd-wingsInf { animation: bcd-overfill 4s ease-in infinite; }
+.bcd-overinflated .bcd-poseOral { animation: bcd-on 4s infinite; }
+/* Rear dump: air leaves through the pull valve instead of the inflator */
+.bcd-dump .bcd-wingsInf { animation: bcd-dumpInf 4s ease-in-out infinite; }
+.bcd-dump .bcd-wingsDef { animation: bcd-dumpDef 4s ease-in-out infinite; }
+.bcd-dump .bcd-dumpBubbles { animation: bcd-dumpBub 4s linear infinite; }
+.bcd-dump .bcd-pull { animation: bcd-pull 4s ease-in-out infinite; }

@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 580" width="100%" height="100%">
+  <defs>
+    <!-- Background Water Depth Glow -->
+    <radialGradient id="waterDepth" cx="50%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#0c2f4d" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#040d18" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Twin Cylinder Metallic Sheen -->
+    <linearGradient id="tankSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="25%" stop-color="#94a3b8"/>
+      <stop offset="50%" stop-color="#f8fafc"/>
+      <stop offset="75%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <!-- Drysuit Shading -->
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0b1320"/>
+      <stop offset="35%" stop-color="#1e293b"/>
+      <stop offset="65%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0b1320"/>
+    </linearGradient>
+
+    <!-- Triangular Jet Fin Shading -->
+    <linearGradient id="finShade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="30%" stop-color="#1e293b"/>
+      <stop offset="70%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Ocean Background -->
+  
+
+  <!-- ========================================== -->
+  <!-- LEFT LEG (OUTWARD IS POSITIVE CLOCKWISE)   -->
+  <!-- ========================================== -->
+  <g id="left-hip" transform="translate(236, 240)">
+    <!-- Hip: 0 deg straight to +15 deg outward, held in place during Move 2 -->
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0; 0; 60; 30; 0; 0"
+      keyTimes="0; 0.22; 0.44; 0.58; 0.76; 1"
+      dur="4.6s"
+      repeatCount="indefinite"
+      additive="sum"
+    />
+    <!-- Thigh -->
+    <line x1="0" y1="0" x2="0" y2="60" stroke="#0a101d" stroke-width="17" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="0" y2="60" stroke="#1e293b" stroke-width="11" stroke-linecap="round"/>
+
+    <!-- Left Knee Joint -->
+    <g id="left-knee" transform="translate(0, 60)">
+      <!-- Knee: bends -30 deg inward in Move 1, flares +30 deg outward in Move 2 -->
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0; 0; -100; 0; 0; 0"
+        keyTimes="0; 0.22; 0.44; 0.58; 0.76; 1"
+        dur="4.6s"
+        repeatCount="indefinite"
+        additive="sum"
+      />
+      <!-- Shin -->
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#0a101d" stroke-width="14" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#1e293b" stroke-width="9" stroke-linecap="round"/>
+
+      <!-- Left Ankle Joint -->
+      <g id="left-ankle" transform="translate(0, 60)">
+        <!-- Ankle: +15 deg in Move 1 (net 0 deg: fin straight back), +45 deg outward in Move 2 -->
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0; 0; 120; 0; 0; 0"
+          keyTimes="0; 0.22; 0.44; 0.58; 0.76; 1"
+          dur="4.6s"
+          repeatCount="indefinite"
+          additive="sum"
+        />
+        <!-- Spring Heel Strap -->
+        <path d="M -7 2 Q 0 -5 7 2" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Foot Pocket -->
+        <path d="M -6 0 L 6 0 L 7 16 L -7 16 Z" fill="#09121d"/>
+        <!-- Triangular Jet Fin Blade -->
+        <polygon points="-7,16 7,16 16,68 -16,68" fill="url(#finShade)" stroke="#09121d" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- Jet Vents -->
+        <line x1="-5" y1="24" x2="-2" y2="35" stroke="#040810" stroke-width="2" stroke-linecap="round"/>
+        <line x1="0" y1="24" x2="0" y2="35" stroke="#040810" stroke-width="2" stroke-linecap="round"/>
+        <line x1="5" y1="24" x2="2" y2="35" stroke="#040810" stroke-width="2" stroke-linecap="round"/>
+        <!-- Stiffening Ribs -->
+        <line x1="-12" y1="42" x2="-14" y2="64" stroke="#334155" stroke-width="1.6"/>
+        <line x1="12" y1="42" x2="14" y2="64" stroke="#334155" stroke-width="1.6"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- RIGHT LEG (OUTWARD IS NEGATIVE CCW)        -->
+  <!-- ========================================== -->
+  <g id="right-hip" transform="translate(264, 240)">
+    <!-- Hip: 0 deg straight to -15 deg outward, held in place during Move 2 -->
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0; 0; -60; -30; 0; 0"
+      keyTimes="0; 0.22; 0.44; 0.58; 0.76; 1"
+      dur="4.6s"
+      repeatCount="indefinite"
+      additive="sum"
+    />
+    <!-- Thigh -->
+    <line x1="0" y1="0" x2="0" y2="60" stroke="#0a101d" stroke-width="17" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="0" y2="60" stroke="#1e293b" stroke-width="11" stroke-linecap="round"/>
+
+    <!-- Right Knee Joint -->
+    <g id="right-knee" transform="translate(0, 60)">
+      <!-- Knee: bends +30 deg inward in Move 1, flares -30 deg outward in Move 2 -->
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0; 0; 100; 0; 0; 0"
+        keyTimes="0; 0.22; 0.44; 0.58; 0.76; 1"
+        dur="4.6s"
+        repeatCount="indefinite"
+        additive="sum"
+      />
+      <!-- Shin -->
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#0a101d" stroke-width="14" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#1e293b" stroke-width="9" stroke-linecap="round"/>
+
+      <!-- Right Ankle Joint -->
+      <g id="right-ankle" transform="translate(0, 60)">
+        <!-- Ankle: -15 deg in Move 1 (net 0 deg: fin straight back), -45 deg outward in Move 2 -->
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0; 0; -120; 0; 0; 0"
+          keyTimes="0; 0.22; 0.44; 0.58; 0.76; 1"
+          dur="4.6s"
+          repeatCount="indefinite"
+          additive="sum"
+        />
+        <!-- Spring Heel Strap -->
+        <path d="M -7 2 Q 0 -5 7 2" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Foot Pocket -->
+        <path d="M -6 0 L 6 0 L 7 16 L -7 16 Z" fill="#09121d"/>
+        <!-- Triangular Jet Fin Blade -->
+        <polygon points="-7,16 7,16 16,68 -16,68" fill="url(#finShade)" stroke="#09121d" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- Jet Vents -->
+        <line x1="-5" y1="24" x2="-2" y2="35" stroke="#040810" stroke-width="2" stroke-linecap="round"/>
+        <line x1="0" y1="24" x2="0" y2="35" stroke="#040810" stroke-width="2" stroke-linecap="round"/>
+        <line x1="5" y1="24" x2="2" y2="35" stroke="#040810" stroke-width="2" stroke-linecap="round"/>
+        <!-- Stiffening Ribs -->
+        <line x1="-12" y1="42" x2="-14" y2="64" stroke="#334155" stroke-width="1.6"/>
+        <line x1="12" y1="42" x2="14" y2="64" stroke="#334155" stroke-width="1.6"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- DIVER BODY AND ARMS (STATIONARY)           -->
+  <!-- ========================================== -->
+  <g id="diver-body">
+    <!-- Streamlined Arms: Shoulders angle slightly outward, Forearms point directly forward -->
+    <!-- Left Arm -->
+    <path d="M 210 130 L 195 82 L 230 52" fill="none" stroke="#0a101d" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 210 130 L 195 82 L 230 52" fill="none" stroke="#1e293b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="232" cy="50" r="6" fill="#09121d"/>
+    <!-- Wrist Dive Computer on Left Arm -->
+    <rect x="214" y="55" width="10" height="12" rx="2.5" fill="#020617" stroke="#38bdf8" stroke-width="1" transform="rotate(47, 218, 61)" />
+
+    <!-- Right Arm -->
+    <path d="M 290 130 L 305 82 L 270 52" fill="none" stroke="#0a101d" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 290 130 L 305 82 L 270 52" fill="none" stroke="#1e293b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="268" cy="50" r="6" fill="#09121d"/>
+
+    <!-- Donut Wing Bladder (flanking the twin cylinders) -->
+    <path d="M 226 112 C 205 118 202 185 220 220 C 235 230 265 230 280 220 C 298 185 295 118 274 112 Z" fill="#070d17" stroke="#0f172a" stroke-width="2"/>
+
+    <!-- Torso and Pelvis -->
+    <path d="M 215 125 L 285 125 L 272 238 L 228 238 Z" fill="url(#suitGrad)"/>
+    <path d="M 224 230 L 276 230 L 268 250 L 232 250 Z" fill="#0a101d"/>
+
+    <!-- Twinset Left Cylinder -->
+    <rect x="222" y="104" width="25" height="110" rx="7.5" fill="url(#tankSheen)" stroke="#1e293b" stroke-width="1"/>
+    <!-- Twinset Right Cylinder -->
+    <rect x="252" y="104" width="25" height="110" rx="7.5" fill="url(#tankSheen)" stroke="#1e293b" stroke-width="1"/>
+
+    <!-- Stainless Steel Tank Bands -->
+    <rect x="222" y="132" width="55" height="10" rx="1.5" fill="#cbd5e1" stroke="#334155" stroke-width="0.8"/>
+    <rect x="222" y="182" width="55" height="10" rx="1.5" fill="#cbd5e1" stroke="#334155" stroke-width="0.8"/>
+
+    <!-- Manifold Crossbar and Valves -->
+    <line x1="237" y1="100" x2="263" y2="100" stroke="#f1f5f9" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="237" cy="96" r="3.8" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.2"/>
+    <circle cx="263" cy="96" r="3.8" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.2"/>
+    <circle cx="250" cy="96" r="3.2" fill="#38bdf8" stroke="#cbd5e1" stroke-width="1.2"/>
+
+    <!-- Diver Head (Neoprene Hood and Mask Strap) -->
+    <ellipse cx="250" cy="84" rx="17" ry="19" fill="#0a101d"/>
+    <ellipse cx="250" cy="84" rx="13" ry="15" fill="#1e293b"/>
+    <!-- Mask Strap -->
+    <path d="M 237 84 Q 250 88 263 84" fill="none" stroke="#020617" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+</svg>
+
